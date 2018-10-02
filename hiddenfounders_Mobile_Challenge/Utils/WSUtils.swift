@@ -11,7 +11,7 @@ class WSUtils {
 
     static var shared = WSUtils()
 
-    private let endPointUrl = "https://api.github.com/search/repositories?q=created:%3E2017-10-22&sort=stars&order=desc"
+    private var endPointUrl = "https://api.github.com/search/repositories?q=created:%3E\(Date.getPreviusMonthDate())&sort=stars&order=desc"
 
     func getRepositories(completion: @escaping (Repositories) -> Void) {
 

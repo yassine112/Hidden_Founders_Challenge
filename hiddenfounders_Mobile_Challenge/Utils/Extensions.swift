@@ -38,3 +38,13 @@ extension UIImageView {
         }
     }
 }
+
+extension Date {
+    static func getPreviusMonthDate() -> String {
+        guard let date = Calendar.current.date(byAdding: .day, value: -30, to: Date()) else { return "" }
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
+    }
+}

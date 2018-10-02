@@ -19,7 +19,7 @@ class MainViewController: UITableViewController {
 
         navigationItem.title = "Trending Repos"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+
 
         // Get data from web service
         WSUtils.shared.getRepositories { (repos) in
