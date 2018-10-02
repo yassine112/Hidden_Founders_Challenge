@@ -1,1 +1,1 @@
-# Hidden_Founders_Challenge
+# Hidden Founders Coding Challenge
