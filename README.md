@@ -12,3 +12,4 @@ Hello 👋
 5. I create class with function to call the web service
 6. I create an extension of UIImageView with function to down load image and store it in cache
 7. I create an extension of Date to get date -30 Day
+8. Add pagination logic [ BONUS ]

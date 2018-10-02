@@ -12,6 +12,8 @@ class MainViewController: UITableViewController {
     let cellId = "repoCell"
     var repositories: Repositories?
 
+    var currentPage = 1
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -42,6 +44,25 @@ class MainViewController: UITableViewController {
             return cell
         }
         return UITableViewCell()
+    }
+
+    // Pagination Logic
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == (repositories?.items?.count)! - 1 {
+
+            currentPage += 1
+            WSUtils.shared.getRepositories(withPage: currentPage, completion: { (repos) in
+
+                for item in repos.items! {
+                    self.repositories?.items?.append(item)
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+
+            })
+
+        }
     }
 
 }
